@@ -1,9 +1,9 @@
 <?php
 // Incluir archivo de conexión
-include("../config/conexion.php");
+include("../../config/conexion.php");
 
 // SQL para añadir el campo 'telefono'
-$sql = "ALTER TABLE usuarios ADD COLUMN password VARCHAR(255) NOT NULL";
+$sql = "ALTER TABLE usuarios ADD rol ENUM('usuario', 'veterinario', 'admin') DEFAULT 'usuario'";
 
 // Ejecutar la consulta
 if ($conexion->query($sql) === TRUE) {

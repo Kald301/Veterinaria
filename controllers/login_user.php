@@ -1,7 +1,8 @@
 <?php
+session_start();
+
 include("../config/conexion.php");
 
-// Datos de inicio
 $correo = $_POST['correo'];
 $password = $_POST['password'];
 
@@ -13,19 +14,23 @@ if ($resultado->num_rows > 0) {
     $usuario = $resultado->fetch_assoc();
     if (password_verify($password, $usuario['password'])) {
 
-        session_start();
         $_SESSION['usuario_id'] = $usuario['id'];
         $_SESSION['usuario_nombre'] = $usuario['nombre'];
-        
-        // Redirigir al dashboard o página principal
+        $_SESSION['usuario_rol'] = $usuario['rol'];
+
         header("Location: ../views/dashboard.php");
+        exit;
     } else {
-        echo "Contraseña incorrecta.";
+        $_SESSION['error'] = "Contraseña incorrecta.";
+        header("Location: ../views/login.php");
+        exit;
     }
 } else {
-    echo "No existe un usuario con ese correo.";
+    // guardar mensaje en la sesión
+    $_SESSION['error'] = "No existe un usuario con ese correo.";
+    header("Location: ../views/login.php");  // Redirigir a login para mostrar el error
+    exit;
 }
 
-// Cerrar conexión
 $conexion->close();
 ?>

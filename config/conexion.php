@@ -2,7 +2,7 @@
 
 $host = "localhost";
 $usuario = "root"; 
-$contrasena = "KMR44hbc87*";  
+$contrasena = "";  
 $base_datos = "veterinaria-PHP";
 
 
