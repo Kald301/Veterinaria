@@ -9,6 +9,9 @@
 
 <body>
     <main>
+
+        <a href="../views/index.php">Inicio</a>
+
         <h1>Iniciar Sesión</h1>
         <form action="../controllers/login_user.php" method="POST">
             <label for="correo">Correo:</label>

@@ -17,9 +17,12 @@ $sql = "INSERT INTO usuarios (nombre, correo, edad, telefono, password)
 
 // Ejecutar la consulta y verificar si fue exitosa
 if ($conexion->query($sql) === TRUE) {
-    echo "Usuario registrado exitosamente.";
+    $_SESSION['mensaje'] = "Usuario creado exitosamente.";
+    header("Location: ../views/index.php");
 } else {
-    echo "Error al registrar el usuario: " . $conexion->error;
+    $_SESSION['error'] = "Error al registrar el usuario:  . $conexion->error";
+    header("Location: ../views/login.php");
+
 }
 
 // Cerrar conexión

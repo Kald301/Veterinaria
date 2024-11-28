@@ -18,7 +18,7 @@ $usuario_id = $_SESSION['usuario_id'];  // ID del usuario logueado
 $sql = "INSERT INTO mascotas (nombre, especie, edad, usuario_id) VALUES ('$nombre', '$especie', '$edad', '$usuario_id')";
 
 if ($conexion->query($sql) === TRUE) {
-    // Si la inserción fue exitosa, redirigir al dashboard con un mensaje de éxito
+    // 
     $_SESSION['mensaje'] = "Mascota añadida exitosamente.";
     header("Location: ../views/dashboard.php");
 } else {

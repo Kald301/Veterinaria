@@ -34,6 +34,16 @@
 
             <button type="submit">Registrar</button>
         </form>
+        
+        <?php
+        session_start();
+
+        if (isset($_SESSION['error'])) {
+            echo "<div style='color: red;'>" . $_SESSION['error'] . "</div>";
+            
+            unset($_SESSION['error']);
+        }
+        ?>
     </main>
 </body>
 

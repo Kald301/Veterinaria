@@ -9,6 +9,9 @@
 
 <body>
     <main>
+
+    <a href="../views/dashboard.php">Mi perfil</a>
+
     <h2>Añadir una mascota</h2>
     <form action="../controllers/mascota_controller.php" method="POST">
         <label for="nombre">Nombre de la mascota:</label>
