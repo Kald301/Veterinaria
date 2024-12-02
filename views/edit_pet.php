@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['
         function confirmarEliminacion(nombreMascota) {
             return confirm(`¿Estás seguro de que deseas eliminar a la mascota "${nombreMascota}"? Esta acción no se puede deshacer.`);
         }
-    </script>
+    </script>   
 </head>
 <body>
     <a href="../views/lista_users.php">Volver a la lista de usuarios</a>

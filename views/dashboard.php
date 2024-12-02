@@ -32,7 +32,13 @@ $resultado = $conexion->query($sql);
     if ($_SESSION['usuario_rol'] === 'veterinario') {
         echo '<a href="../views/lista_users.php">Ver usuarios</a>';
     }
-    ?>      
+    ?>   
+    
+    <?php
+    if ($_SESSION['usuario_rol'] === 'admin'){
+        echo '<a href="../views/admin.php">¡ADMIN!</a>';
+    }
+    ?>
 
     <h1>Bienvenido, <?php echo $_SESSION['usuario_nombre']; ?>!</h1>
     <p>Has iniciado sesión exitosamente.</p>
