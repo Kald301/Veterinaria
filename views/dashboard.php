@@ -35,9 +35,9 @@ $resultado = $conexion->query($sql);
     ?>   
     
     <?php
-    if ($_SESSION['usuario_rol'] === 'admin'){
-        echo '<a href="../views/admin.php">¡ADMIN!</a>';
-    }
+        if ($_SESSION['usuario_rol'] === 'admin') {
+            echo '<a href="../views/admin.php?usuario_id=' . $_SESSION['usuario_id'] . '">¡ADMIN!</a>';
+        }
     ?>
 
     <h1>Bienvenido, <?php echo $_SESSION['usuario_nombre']; ?>!</h1>
