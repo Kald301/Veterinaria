@@ -65,7 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['
     </script>   
 </head>
 <body>
-    <a href="../views/lista_users.php">Volver a la lista de usuarios</a>
+    <a href="../controllers/redirigir.php">Volver a la lista de usuarios</a>
+    
+
 
     <h1>Editar Mascotas</h1>
 

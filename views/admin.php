@@ -9,8 +9,12 @@ if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_rol'] !== 'admin') {
 
 include("../config/conexion.php");
 
-// Obtener todos los usuarios
-$sql_usuarios = "SELECT id, nombre, correo, telefono, password FROM usuarios";
+// Obtener los administradores
+$sql_admins = "SELECT id, nombre, correo, telefono, rol FROM usuarios WHERE rol = 'admin'";
+$resultado_admins = $conexion->query($sql_admins);
+
+// Obtener los demás usuarios
+$sql_usuarios = "SELECT id, nombre, correo, telefono, rol FROM usuarios WHERE rol != 'admin'";
 $resultado_usuarios = $conexion->query($sql_usuarios);
 ?>
 
@@ -25,7 +29,7 @@ $resultado_usuarios = $conexion->query($sql_usuarios);
     <h1>Administrar Usuarios</h1>
     <a href="../views/dashboard.php">Volver al Dashboard</a>
 
-    <!-- Mostrar mensaje de éxito o error -->
+    <!-- Mostrar mensaje -->
     <?php
     if (isset($_SESSION['mensaje'])) {
         echo "<div style='color: green;'>" . $_SESSION['mensaje'] . "</div>";
@@ -37,7 +41,8 @@ $resultado_usuarios = $conexion->query($sql_usuarios);
     }
     ?>
 
-    <!-- Tabla de usuarios -->
+    <!-- Tabla de administradores -->
+    <h2>Administradores</h2>
     <table border="1">
         <thead>
             <tr>
@@ -45,6 +50,30 @@ $resultado_usuarios = $conexion->query($sql_usuarios);
                 <th>Nombre</th>
                 <th>Correo</th>
                 <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($admin = $resultado_admins->fetch_assoc()): ?>
+                <tr>
+                    <td><?php echo $admin['id']; ?></td>
+                    <td><?php echo $admin['nombre']; ?></td>
+                    <td><?php echo $admin['correo']; ?></td>
+                    <td><?php echo $admin['telefono']; ?></td>
+                </tr>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
+
+    <!-- Tabla de otros usuarios -->
+    <h2>Otros Usuarios</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+                <th>Rol</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -55,6 +84,7 @@ $resultado_usuarios = $conexion->query($sql_usuarios);
                     <td><?php echo $usuario['nombre']; ?></td>
                     <td><?php echo $usuario['correo']; ?></td>
                     <td><?php echo $usuario['telefono']; ?></td>
+                    <td><?php echo $usuario['rol']; ?></td>
                     <td>
                         <a href="../views/edit_user.php?usuario_id=<?php echo $usuario['id']; ?>">Editar</a>
                         <a href="../controllers/delete_user.php?usuario_id=<?php echo $usuario['id']; ?>" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">Eliminar</a>

@@ -18,6 +18,7 @@ if ($resultado->num_rows > 0) {
         $_SESSION['usuario_nombre'] = $usuario['nombre'];
         $_SESSION['usuario_rol'] = $usuario['rol'];
 
+
         header("Location: ../views/dashboard.php");
         exit;
     } else {

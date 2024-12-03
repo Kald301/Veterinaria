@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
     $correo = $_POST['correo'];
     $telefono = $_POST['telefono'];
+    $rol = $_POST['rol'];
     $password = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : null;
 
     // Actualizar datos
@@ -74,8 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br>
         <label for="rol">Rol del usuario actual: <?php echo $usuario['rol']; ?> </label><br>
         <select name="rol" id="rol">
-            <option value="usuario">Usuario</option>
-            <option value="veterinario">Veterinario</option>
+            <option value="usuario" <?php echo $usuario['rol'] === 'usuario' ? 'selected' : ''; ?>>Usuario</option>
+            <option value="veterinario" <?php echo $usuario['rol'] === 'veterinario' ? 'selected' : ''; ?>>Veterinario</option>
         </select>
         <br>
         <button type="submit">Guardar</button>

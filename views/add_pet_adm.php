@@ -1,9 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_rol'] !== 'veterinario') {
+if (!isset($_SESSION['usuario_id']) || ($_SESSION['usuario_rol'] !== 'veterinario' && $_SESSION['usuario_rol'] !== 'admin')) {
     header("Location: ../views/dashboard.php");
     exit();
 }
+
 
 include("../config/conexion.php");
 
