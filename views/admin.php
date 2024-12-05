@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+
+
 // Verificar que el usuario sea administrador
 if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_rol'] !== 'admin') {
     header("Location: ../views/dashboard.php");
@@ -8,6 +10,11 @@ if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_rol'] !== 'admin') {
 }
 
 include("../config/conexion.php");
+
+
+$sql_veterinarios = "SELECT id, nombre FROM usuarios WHERE rol = 'veterinario'";
+$resultado_veterinarios = $conexion->query($sql_veterinarios);
+
 
 // Obtener los administradores
 $sql_admins = "SELECT id, nombre, correo, telefono, rol FROM usuarios WHERE rol = 'admin'";
@@ -93,6 +100,28 @@ $resultado_usuarios = $conexion->query($sql_usuarios);
             <?php endwhile; ?>
         </tbody>
     </table>
+
+    <h2>HORARIOS</h2>
+
+    <form method="POST" action="../controllers/add_horario.php">
+        <label for="veterinario_id">Veterinario:</label>
+        <select name="veterinario_id" required>
+            <option value="" disabled selected>Seleccione un veterinario</option>
+            <?php while ($veterinario = $resultado_veterinarios->fetch_assoc()): ?>
+                <option value="<?php echo $veterinario['id']; ?>">
+                    <?php echo $veterinario['nombre']; ?>
+                </option>
+            <?php endwhile; ?>
+        </select>
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" required>
+        <label for="hora_inicio">Hora de inicio:</label>
+        <input type="time" name="hora_inicio" required>
+        <label for="hora_fin">Hora de fin:</label>
+        <input type="time" name="hora_fin" required>
+        <button type="submit">Guardar horario</button>
+    </form>
+
 </body>
 </html>
 
