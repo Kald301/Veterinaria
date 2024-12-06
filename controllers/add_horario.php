@@ -25,5 +25,7 @@ $sql = "SELECT * FROM horarios
         WHERE veterinario_id = '$veterinario_id' AND fecha = '$fecha' AND disponible = TRUE";
 $resultado = $conexion->query($sql);
 
+header("Location: ../views/admin.php");  // Redirigir a login para mostrar el error
+
 $conexion->close();
 ?>

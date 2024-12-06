@@ -15,7 +15,6 @@ include("../config/conexion.php");
 $sql_veterinarios = "SELECT id, nombre FROM usuarios WHERE rol = 'veterinario'";
 $resultado_veterinarios = $conexion->query($sql_veterinarios);
 
-
 // Obtener los administradores
 $sql_admins = "SELECT id, nombre, correo, telefono, rol FROM usuarios WHERE rol = 'admin'";
 $resultado_admins = $conexion->query($sql_admins);
@@ -23,6 +22,17 @@ $resultado_admins = $conexion->query($sql_admins);
 // Obtener los demás usuarios
 $sql_usuarios = "SELECT id, nombre, correo, telefono, rol FROM usuarios WHERE rol != 'admin'";
 $resultado_usuarios = $conexion->query($sql_usuarios);
+
+$sql_horarios_activos = "
+    SELECT h.id, h.fecha, h.hora_inicio, h.hora_fin, u.nombre AS veterinario
+    FROM horarios h
+    JOIN usuarios u ON h.veterinario_id = u.id
+    WHERE h.disponible = TRUE
+    ORDER BY h.fecha, h.hora_inicio";
+$resultado_horarios_activos = $conexion->query($sql_horarios_activos);
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -121,6 +131,30 @@ $resultado_usuarios = $conexion->query($sql_usuarios);
         <input type="time" name="hora_fin" required>
         <button type="submit">Guardar horario</button>
     </form>
+
+    <h2>Horarios Activos</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Veterinario</th>
+                <th>Fecha</th>
+                <th>Hora de Inicio</th>
+                <th>Hora de Fin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($horario = $resultado_horarios_activos->fetch_assoc()): ?>
+                <tr>
+                    <td><?php echo $horario['id']; ?></td>
+                    <td><?php echo $horario['veterinario']; ?></td>
+                    <td><?php echo $horario['fecha']; ?></td>
+                    <td><?php echo $horario['hora_inicio']; ?></td>
+                    <td><?php echo $horario['hora_fin']; ?></td>
+                </tr>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
 
 </body>
 </html>
