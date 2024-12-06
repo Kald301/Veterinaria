@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veterinaria inicio</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
     <main>
+
+        <h1>BIENVENIDO!</h1>
+     <div class="links-container">
         <a href="../views/login.php">Iniciar sesion</a>
         <a href="../views/signin.php">Crear usuario</a>
-        <h1>BIENVENIDO :D</h1>
-
-
+    </div>
+    
         <?php
         if (isset($_SESSION['mensaje'])) {
             echo "<div style='color: green;'>" . $_SESSION['mensaje'] . "</div>";
@@ -20,8 +23,7 @@
         ?>
         
 
-
-
     </main>
+    
 </body>
 </html>
