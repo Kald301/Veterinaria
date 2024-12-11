@@ -9,7 +9,7 @@
 <body>
     <main>
 
-        <h1>BIENVENIDO!</h1>
+        <h1>BIENVENIDO A NUESTRA PAGINA VETERINARIA!</h1>
      <div class="links-container">
         <a href="../views/login.php">Iniciar sesion</a>
         <a href="../views/signin.php">Crear usuario</a>

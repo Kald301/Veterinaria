@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 
 <body>
     <main>
 
-        <a href="../views/index.php">Inicio</a>
+        
+        <a href="../views/index.php" class="inicio">Inicio</a>
 
         <h1>Iniciar Sesión</h1>
         <form action="../controllers/login_user.php" method="POST">

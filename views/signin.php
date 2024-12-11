@@ -5,10 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuarios</title>
+    <link rel="stylesheet" href="../assets/css/registro.css">
 </head>
 
 <body>
     <main>
+
+        <a href="../views/index.php" class="inicio">Inicio</a>
+        
         <h1>Registro de Usuarios</h1>
         <form action="../controllers/registrar_user.php" method="POST">
             <label for="nombre">Nombre:</label>
