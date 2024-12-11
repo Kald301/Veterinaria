@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Verificar que el usuario sea administrador
+// Verificar admin
 if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_rol'] !== 'admin') {
     header("Location: ../views/dashboard.php");
     exit();
@@ -9,7 +9,7 @@ if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_rol'] !== 'admin') {
 
 include("../config/conexion.php");
 
-// Consulta para obtener los horarios que están activos en este momento
+// Consulta horarios
 $sql_horarios_activos = "
     SELECT h.id, h.fecha, h.hora_inicio, h.hora_fin, u.nombre AS veterinario
     FROM horarios h

@@ -9,7 +9,7 @@ if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_rol'] !== 'admin') {
 
 include("../config/conexion.php");
 
-// Consulta para obtener los horarios que están activos en este momento
+// consulta para obtener los horarios que están activos
 $sql_horarios_activos = "
     SELECT h.id, h.fecha, h.hora_inicio, h.hora_fin, u.nombre AS veterinario
     FROM horarios h
@@ -19,12 +19,12 @@ $sql_horarios_activos = "
     ORDER BY h.hora_inicio";
 $resultado_horarios_activos = $conexion->query($sql_horarios_activos);
 
-// Configurar zona horaria y obtener la hora actual
+// optener mi hora local
 date_default_timezone_set('America/Bogota'); // Ajusta tu zona horaria
 $horaActual = date('H:i'); // Hora actual en formato HH:mm
 
 /**
- * Función para dividir un rango de tiempo en intervalos de una hora
+ * func para freaccionar los horarios (roto)
  */
 function dividirHorariosEnIntervalos($horaInicio, $horaFin) {
     $intervalos = [];

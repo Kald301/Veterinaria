@@ -20,11 +20,11 @@ if ($resultado_usuario->num_rows > 0) {
     exit();
 }
 
-// Obtener las mascotas
+// Obtener las pets
 $sql = "SELECT * FROM mascotas WHERE usuario_id = $usuario_id";
 $resultado = $conexion->query($sql);
 
-// Actualizar datos de la mascota
+// Actualizar datos pet
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['accion'] === 'actualizar') {
     $mascota_id = $_POST['mascota_id'];
     $nombre = $_POST['nombre'];
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['
     exit();
 }
 
-// Eliminar mascota
+// Eliminar pet
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['accion'] === 'eliminar') {
     $mascota_id = $_POST['mascota_id'];
 
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['
 
     <h1>Editar Mascotas</h1>
 
-    <!-- Mostrar mensaje si existe -->
+    <!-- Mostrar mensaje -->
     <?php
     if (isset($_SESSION['mensaje'])) {
         echo "<div style='color: green;'>" . $_SESSION['mensaje'] . "</div>";

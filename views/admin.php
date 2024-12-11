@@ -3,7 +3,6 @@ session_start();
 
 
 
-// Verificar que el usuario sea administrador
 if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_rol'] !== 'admin') {
     header("Location: ../views/dashboard.php");
     exit();
@@ -15,11 +14,11 @@ include("../config/conexion.php");
 $sql_veterinarios = "SELECT id, nombre FROM usuarios WHERE rol = 'veterinario'";
 $resultado_veterinarios = $conexion->query($sql_veterinarios);
 
-// Obtener los administradores
+// LLAMR USUARIO ADMIN
 $sql_admins = "SELECT id, nombre, correo, telefono, rol FROM usuarios WHERE rol = 'admin'";
 $resultado_admins = $conexion->query($sql_admins);
 
-// Obtener los demás usuarios
+// llAMAR USUARIOS NO ADMIN
 $sql_usuarios = "SELECT id, nombre, correo, telefono, rol FROM usuarios WHERE rol != 'admin'";
 $resultado_usuarios = $conexion->query($sql_usuarios);
 
@@ -58,7 +57,7 @@ $resultado_horarios_activos = $conexion->query($sql_horarios_activos);
     }
     ?>
 
-    <!-- Tabla de administradores -->
+    <!-- Tabla de ADMIN  -->
     <h2>Administradores</h2>
     <table border="1">
         <thead>
@@ -81,7 +80,7 @@ $resultado_horarios_activos = $conexion->query($sql_horarios_activos);
         </tbody>
     </table>
 
-    <!-- Tabla de otros usuarios -->
+    <!-- Tabla de usuarios no admin -->
     <h2>Otros Usuarios</h2>
     <table border="1">
         <thead>

@@ -5,13 +5,13 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
-// Incluir conexión a la base de datos
+// Conexion base de datos
 include("../config/conexion.php");
 
-// Obtener el ID del usuario actual
+// Obtener el ID logueada
 $usuario_id = $_SESSION['usuario_id'];
 
-// Consultar las mascotas del usuario
+// Consultar las pets
 $sql = "SELECT * FROM mascotas WHERE usuario_id = $usuario_id";
 $resultado = $conexion->query($sql);
 ?>

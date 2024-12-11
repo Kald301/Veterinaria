@@ -7,7 +7,7 @@ if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_rol'] !== 'veterinario
 
 include("../config/conexion.php");
 
-// Obtener la lista de usuarios
+//  La lista de usuarios
 $sql = "SELECT id, nombre, correo FROM usuarios WHERE rol = 'usuario'";
 $resultado = $conexion->query($sql);
 ?>

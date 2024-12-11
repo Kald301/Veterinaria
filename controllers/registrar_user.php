@@ -1,8 +1,8 @@
 <?php
-// Incluir archivo de conexión
+
 include("../config/conexion.php");
 
-// Capturar los datos enviados desde el formulario
+// capturar los datos enviados desde el formulario
 $nombre = $_POST['nombre'];
 $correo = $_POST['correo'];
 $edad = $_POST['edad'];
@@ -11,11 +11,11 @@ $password = $_POST['password'];
 
 $password_encriptada = password_hash($password, PASSWORD_BCRYPT);
 
-// Preparar la consulta SQL
+// Preparar datos para la base de datos
 $sql = "INSERT INTO usuarios (nombre, correo, edad, telefono, password) 
         VALUES ('$nombre', '$correo', $edad, '$telefono', '$password_encriptada')";
 
-// Ejecutar la consulta y verificar si fue exitosa
+// Ejecutar el envio
 if ($conexion->query($sql) === TRUE) {
     $_SESSION['mensaje'] = "Usuario creado exitosamente.";
     header("Location: ../views/index.php");
@@ -25,6 +25,5 @@ if ($conexion->query($sql) === TRUE) {
 
 }
 
-// Cerrar conexión
 $conexion->close();
 ?>

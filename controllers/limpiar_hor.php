@@ -3,11 +3,11 @@ include("../config/conexion.php");
 
 date_default_timezone_set("America/Bogota"); // Cambia esto a tu zona horaria local
 
-// Obtener la fecha y hora actual
+// llamar la fecha y hora actual
 $fecha_actual = date("Y-m-d");
 $hora_actual = date("H:i:s");
 
-// Eliminar horarios que ya pasaron
+// eliminar horarios que ya pasaron
 $sql_eliminar = "
     DELETE FROM horarios 
     WHERE fecha < '$fecha_actual' 
@@ -23,7 +23,7 @@ if ($conexion->query($sql_eliminar) === TRUE) {
 
 echo "Hora del servidor (UTC): " . date("Y-m-d H:i:s") . "<br>";
 
-// Configura tu zona horaria local para depuración
+// configura tu zona horaria para eliminar correctamente los horarios obsoletos
 echo "Hora local configurada: " . date("Y-m-d H:i:s") . "<br>";
 
 

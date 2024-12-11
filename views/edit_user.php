@@ -10,7 +10,7 @@ include("../config/conexion.php");
 
 $usuario_id = $_GET['usuario_id'];
 
-// Obtener los datos del usuario
+// OPTEENR LOS DATOS DEL USER
 $sql = "SELECT id, nombre, correo, telefono, rol FROM usuarios WHERE id = $usuario_id";
 $resultado = $conexion->query($sql);
 

@@ -6,7 +6,7 @@ include("../config/conexion.php");
 $correo = $_POST['correo'];
 $password = $_POST['password'];
 
-// Consultar en la base de datos
+// consultar en la base de datos
 $sql = "SELECT * FROM usuarios WHERE correo = '$correo'";
 $resultado = $conexion->query($sql);
 

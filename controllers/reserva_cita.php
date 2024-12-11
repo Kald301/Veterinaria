@@ -6,11 +6,11 @@ $fecha = $_POST['fecha'];
 $hora_inicio = $_POST['hora_inicio'];
 $hora_fin = date('H:i:s', strtotime($hora_inicio . ' +1 hour')); // Cita de 1 hora
 
-// Insertar cita
+// insertar cita
 $sql_cita = "INSERT INTO citas (usuario_id, veterinario_id, fecha, hora_inicio, hora_fin) 
              VALUES ('$usuario_id', '$veterinario_id', '$fecha', '$hora_inicio', '$hora_fin')";
 if ($conexion->query($sql_cita)) {
-    // Actualizar horario
+    // objeto para actualizar horarios
     $sql_update_horario = "UPDATE horarios 
                            SET disponible = FALSE 
                            WHERE veterinario_id = '$veterinario_id' AND fecha = '$fecha' AND hora_inicio = '$hora_inicio'";
