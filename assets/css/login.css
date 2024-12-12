@@ -127,3 +127,23 @@ a.inicio:hover {
     background-color: #45a049; 
     transform: scale(1.05); 
 }
+
+a.miperfil {
+    position: absolute; 
+    top: 10px;
+    right: 20px; 
+    padding: 10px 20px; 
+    background-color: #4CAF50; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+a.miperfil:hover {
+    background-color: #45a049; 
+    transform: scale(1.05); 
+}

@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuarios</title>
+    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 
 <body>
     <main>
 
-    <a href="../views/dashboard.php">Mi perfil</a>
-
+    
+    <a href="../views/dashboard.php" class="inicio">Mi perfil</a>
+    
     <h2>Añadir una mascota</h2>
     <form action="../controllers/mascota_controller.php" method="POST">
         <label for="nombre">Nombre de la mascota:</label>

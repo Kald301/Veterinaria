@@ -3,7 +3,10 @@ session_start();
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
     exit();
+
 }
+
+
 
 // Conexion base de datos
 include("../config/conexion.php");
@@ -24,6 +27,7 @@ $resultado = $conexion->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
+    <link rel="stylesheet" href="../assets/css/registro.css">
 </head>
 <body>
     <a href="../controllers/logout.php">Cerrar sesión</a>
