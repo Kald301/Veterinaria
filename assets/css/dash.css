@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('fondo.jpg'); /* Cambia por tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+                url('../images/imagenV5.jpg');
+}
+
+/* Barra de navegación superior */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(131, 165, 77, 0.7); /* Fondo semitransparente */
+    padding: 10px;
+    position: sticky;
+    top: 0;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-item a:hover {
+    background-color: #4CAF50; /* Color al pasar el mouse */
+    color: white;
+    border: 1px solid white;
+}
+
+/* Contenido principal */
+.content {
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Título de bienvenida */
+h1 {
+    color: #4CAF50;
+}
+
+/* Mascotas */
+.mascotas {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.mascotas ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mascotas li {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.main-box {
+    width: 60%; /* Ajusta el ancho según lo que prefieras */
+    margin: 50px auto; /* Centra horizontalmente y añade un margen superior */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con algo de transparencia */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    text-align: center; /* Centra el texto dentro del cuadro */
+    position: relative;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+                url('../images/imagenV2.jpg');
+    background-size: cover; /* Ajusta la imagen al tamaño del cuadro */
+    background-blend-mode: overlay;
+}
+
+
+
+/* Títulos y texto */
+.main-box h1 {
+    color: #4CAF50; /* Verde agradable para resaltar el nombre del usuario */
+    margin-bottom: 10px;
+}
+
+.main-box p {
+    font-size: 18px;
+    color: #555; /* Color de texto secundario */
+}
+
+.mascotas h2 {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+.mascotas ul {
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+    color: #444;
+}
+
+.mascotas li {
+    margin: 10px 0;
+}

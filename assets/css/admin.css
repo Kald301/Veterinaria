@@ -1,0 +1,41 @@
+body {
+    background-color: #f0f0f0; /* Color de fondo suave */
+    color: #333; /* Color de texto oscuro */
+    font-family: 'Arial', sans-serif; /* Fuente legible */
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+                url('../images/imagenV5.jpg');
+}
+
+h1, h2, h3 {
+    margin: 20px 0; /* Espaciado vertical */
+}
+p {
+    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+    margin-bottom: 15px; /* Espaciado entre párrafos */
+}
+
+.button {
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color de texto */
+    padding: 10px 20px; /* Relleno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+.button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el cursor */
+}
+
+a {
+    color: #007bff; /* Color del enlace */
+    text-decoration: none; /* Sin subrayado */
+}
+a:hover {
+    text-decoration: underline; /* Subrayado al pasar el cursor */
+}
+
+.container {
+    max-width: 1200px; /* Ancho máximo */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 20px; /* Relleno */
+}

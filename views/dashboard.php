@@ -27,10 +27,20 @@ $resultado = $conexion->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <link rel="stylesheet" href="../assets/css/registro.css">
+    <link rel="stylesheet" href="../assets/css/dash.css">
 </head>
 <body>
-    <a href="../controllers/logout.php">Cerrar sesión</a>
+<div class="navbar">
+    <div class="nav-item">
+        <a href="../controllers/logout.php">Cerrar sesión</a>
+    </div>
+    <div class="nav-item">
+        <a href="admin.php">¡ADMIN!</a>
+    </div>
+    <div class="nav-item">
+    <a href="../views/addpet.php">Añadir mascota</a>
+    </div>
+</div>
 
     <?php
     if ($_SESSION['usuario_rol'] === 'veterinario') {
@@ -40,14 +50,25 @@ $resultado = $conexion->query($sql);
     
     <?php
         if ($_SESSION['usuario_rol'] === 'admin') {
-            echo '<a href="../views/admin.php?usuario_id=' . $_SESSION['usuario_id'] . '">¡ADMIN!</a>';
+            echo '<a href="../views/admin.php?usuario_id=' . $_SESSION['usuario_id'] . '"></a>';
         }
     ?>
-
+    <div class="main-box">
     <h1>Bienvenido, <?php echo $_SESSION['usuario_nombre']; ?>!</h1>
-    <p>Has iniciado sesión exitosamente.</p>
-    
-    <a href="../views/addpet.php">Añadir mascota</a>
+    <p>AQUI ENCONTRARAS A TUS MASCOTAS!.</p>
+        <div class= "mascotas">
+    <h2>Tus Mascotas</h2>
+    <ul>
+            <?php while ($mascota = $resultado->fetch_assoc()): ?>
+                <li>
+                    <strong>Nombre:</strong> <?php echo $mascota['nombre']; ?>, 
+                    <strong>Especie:</strong> <?php echo $mascota['especie']; ?>, 
+                    <strong>Edad:</strong> <?php echo $mascota['edad']; ?> años
+                </li>
+            <?php endwhile; ?>
+        </ul>
+        </div>
+    </div>
     
     <!-- Mostrar mensajes -->
     <?php
@@ -58,16 +79,8 @@ $resultado = $conexion->query($sql);
     ?>
 
     <?php if ($resultado->num_rows > 0): ?>
-        <h2>Tus Mascotas</h2>
-        <ul>
-            <?php while ($mascota = $resultado->fetch_assoc()): ?>
-                <li>
-                    <strong>Nombre:</strong> <?php echo $mascota['nombre']; ?>, 
-                    <strong>Especie:</strong> <?php echo $mascota['especie']; ?>, 
-                    <strong>Edad:</strong> <?php echo $mascota['edad']; ?> años
-                </li>
-            <?php endwhile; ?>
-        </ul>
+        
+        
     <?php else: ?>
         <p>No tienes mascotas registradas. ¡Añade una nueva desde <a href="../views/addpet.php">aquí</a>!</p>
     <?php endif; ?>
