@@ -3,7 +3,7 @@
 $host = "localhost";
 $usuario = "root"; 
 $contrasena = "";  
-$base_datos = "veterinaria-php";
+$base_datos = "veterinariaphp";
 
 
 $conexion = new mysqli($host, $usuario, $contrasena, $base_datos);
