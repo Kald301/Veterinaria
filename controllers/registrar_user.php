@@ -18,7 +18,7 @@ $sql = "INSERT INTO usuarios (nombre, correo, edad, telefono, password)
 // Ejecutar el envio
 if ($conexion->query($sql) === TRUE) {
     $_SESSION['mensaje'] = "Usuario creado exitosamente.";
-    header("Location: ../views/index.php");
+    header("Location: ../index.php");
 } else {
     $_SESSION['error'] = "Error al registrar el usuario:  . $conexion->error";
     header("Location: ../views/login.php");

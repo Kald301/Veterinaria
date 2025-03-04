@@ -11,7 +11,7 @@
 <body>
     <main>
 
-        <a href="../views/index.php" class="inicio">Inicio</a>
+        <a href="../index.php" class="inicio">Inicio</a>
         
         <h1>Registro de Usuarios</h1>
         <form action="../controllers/registrar_user.php" method="POST">

@@ -12,7 +12,7 @@
     <main>
 
         
-        <a href="../views/index.php" class="inicio">Inicio</a>
+        <a href="../index.php" class="inicio">Inicio</a>
 
         <h1>Iniciar Sesión</h1>
         <form action="../controllers/login_user.php" method="POST">
